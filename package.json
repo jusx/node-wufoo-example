@@ -1,0 +1,10 @@
+{
+  "name": "Node-Wufoo-Example",
+  "description": "An Example App for Node-Wufoo",
+  "version": "0.0.1",
+  "private": true, 
+  "dependencies": {
+    "restify": "2.x",
+    "wufoo": "1.x"
+  }
+}

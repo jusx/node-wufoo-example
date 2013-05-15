@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Node Wufoo Example</title>
+    <style>
+      /** Just some simple basic styling to make things look prettier **/
+      body {color:#111;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+      
+      #formapp {margin:auto; width:60%;text-align:center;}
+      
+      .hide {display:none;}
+      
+      ul {margin:0;padding:10px;}
+      ul li {list-style:none; margin:0}
+      ul#form-list li {
+        border: 1px solid #ccc; 
+        padding:0 0 7px 0;
+        border-radius:5px;
+        margin-bottom:5px;
+        box-shadow:rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+        background:#eee;
+      }
+      ul#form-list li {font-size:0.8em;}
+      ul#form-list li h2 {margin-bottom:5px;font-size:1.5em;}
+      
+      ul#field-list {margin:0; margin-top:10px;background:#fff;}
+      ul#field-list li {
+        font-size:1em;
+        margin-left:0;
+        padding:5px;
+        box-shadow:none;
+        border:none;
+        background:none;
+        border-bottom:1px solid #eee;
+      }
+      
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+  </head>
+
+  <body>
+    <div id="formapp">
+      <h1>Forms from Wufoo Fishbowl</h1>
+      <ul id="form-list"></ul>  
+    </div>
+    
+    
+    
+    <script src="/app/formapp.js"></script>
+    
+    <script type="text/template" id="form-template">
+        <div class="form" data-id="<%- id%>">
+          <h2><%- name %></h2>
+          <div><a href="#" class="js-field-click">Fields</a> &dot; <a href="<%- url %>" target="_blank"> Open Form</a></div>
+          <ul id="field-list" class="hide"></ul>
+        </div>
+    </script>
+    
+    <script type="text/template" id="field-template">
+        <div class="field">
+          <div><%- title %> (<%- type %>)</div>
+        </div>
+    </script>
+    
+  </body>
+  
+  
+   
+</html>
