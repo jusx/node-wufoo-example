@@ -7,4 +7,6 @@ To run the app:
     $npm install
     $node app
     
+Point your browser to <code>http://0.0.0.0:8080/app</code>
 
+    
