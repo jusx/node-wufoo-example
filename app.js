@@ -7,16 +7,15 @@ server.listen(8080, function() {
   console.log('%s listening at %s', server.name, server.url);
 });
 
-// server.get('/', restify.serveStatic({
-//    directory: "./public",
-//      default: "index.html"
-// }));
+server.get('/', restify.serveStatic({
+   directory: "./public",
+     default: "index.html"
+}));
 
 server.get(/\/app\/?.*/, restify.serveStatic({
   directory: "./public",
-    default: "index.html"  
+    default: "index.html"
 }));
-
 
 server.get('/api/forms/', function(req, res, next) {
    wufoo.getForms(function(err, forms) {
@@ -25,7 +24,7 @@ server.get('/api/forms/', function(req, res, next) {
          var form = forms[i];
          json.push({
                      id: form.hash,
-                   name: form.name, 
+                   name: form.name,
             description: form.description,
                url: "http://" + form.wufoo.account + ".wufoo.com/forms/" + form.url
          });
@@ -33,7 +32,7 @@ server.get('/api/forms/', function(req, res, next) {
       res.send(json);
    });
    next();
-   
+
 });
 
 server.get('/api/forms/:formid/fields', function(req, res, next) {
@@ -41,7 +40,7 @@ server.get('/api/forms/:formid/fields', function(req, res, next) {
       var json = [];
       for (var i=0;i<fields.length;i++) {
          var field = fields[i];
-         
+
          json.push({
                  title: field.title,
                   type: field.type,
@@ -53,7 +52,3 @@ server.get('/api/forms/:formid/fields', function(req, res, next) {
    });
    next();
 });
-
-
-
-
